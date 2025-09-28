@@ -6,8 +6,6 @@ import time, json, sys
 from datetime import timedelta, datetime
 import altair as alt
 
-# Instructions: in terminal type streamlit run app.py
-
 # Optional: only import pyserial on the Live tab to avoid errors if it's not installed yet.
 try:
     import serial
@@ -297,7 +295,7 @@ with tab_replay:
 # =============================
 with tab_live:
     st.subheader("Connect Arduino (Temp, HR, HRV)")
-    st.markdown(r'''
+    st.markdown(r"""
 **Serial format (CSV)** expected by default:
 ```
 2025-09-28T12:34:56Z, 36.45, 72, 830
@@ -307,7 +305,7 @@ Or **JSON**:
 ```json
 {"t":"2025-09-28T12:34:56Z","temp_c":36.45,"bpm":72,"ibi_ms":830}
 ```
-''')
+""")
     sim = st.checkbox("Use simulation (no hardware)", value=False, help="Great for dry runs at the hackathon booth.")
     port = st.text_input("Serial port (e.g., COM3 on Windows, /dev/tty.usbmodemXXXX on macOS)", value="")
     baud = st.number_input("Baud rate", 300, 1000000, 115200, step=300)
